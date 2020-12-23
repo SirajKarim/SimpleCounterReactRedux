@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { decrementAction, incrementAction,  resetAction } from './Store/Actions/Action';
 
 
 export default function MyCounter() {
@@ -11,9 +12,9 @@ export default function MyCounter() {
       <View style={styles.container}>
         <Text style = {{fontWeight: 'bold', fontSize: 65}}>{counter}</Text>
         <View style = {{flexDirection: 'row',}}>
-          <Button onPress = { () => dispatch({type: 'Increment'})} title = "+"/>
-          <Button onPress = { () => dispatch({type: 'Decrement'})} title = "-" color="red"/>
-          <Button onPress = { () => dispatch({type: 'Reset'})} title = "Reset" color="green"/>
+          <Button onPress = { () => dispatch(incrementAction())} title = "+"/>
+          <Button onPress = { () => dispatch(decrementAction())} title = "-" color="red"/>
+          <Button onPress = { () => dispatch(resetAction())} title = "Reset" color="green"/>
         </View>
       </View>
      
